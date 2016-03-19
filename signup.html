@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+		<meta charset="utf-8"/>
+		<title>Sign Up</title>
+		<style>
+			fieldset{
+				width:550px;
+				background-color:#f1eaee;
+				margin-left:0px;
+				margin-bottom:5px;
+				
+					}
+			legend{
+				font-weight:bold;
+				font-size:20px;
+				color:green;
+				}
+			body{
+			background-color:#F7F7F7;
+			margin-left:375px;
+			}
+			.button{
+			padding:5px;
+			background-color:green;
+			width:100px;
+			border-radius:5px;
+			margin-left:50px;
+			}
+			.styling{
+			float:left;
+		
+			}
+		</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+	<fieldset class="styling">
+	<legend>Personal Info:</legend>
+		<form ng-controller="validation" name="myForm" novalidate >
+			<p>FirstName:
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="firstname" ng-model="firstname" required placeholder="Firstname">
+					<span style="color:red" ng-show="myForm.firstname.$dirty && myForm.firstname.$invalid">
+					<span ng-show="myForm.firstname.$error.required">Firstname is Mandatory.</span>
+					</span>
+			</p>
+			<p>LastName:
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="lastname" ng-model="lastname" required placeholder="Lastname">
+					<span style="color:red" ng-show="myForm.lastname.$dirty && myForm.lastname.$invalid">
+					<span ng-show="myForm.lastname.$error.required">Last name is Mandatory.</span>
+					</span>
+			</p>
+			<p>
+				<label for="address1" >Address Lane 1(optional):</label>
+				&nbsp;<input type="text" name="address1" id="address1" placeholder="Address"/>
+			</p>
+			<p>
+				<label for="address2" >Address Lane 2(optional):</label>
+				&nbsp;<input type="text" name="adress2" id="address2"placeholder="Address"/>
+			</p>
+			<p>Country:
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="country" ng-model="country" required placeholder="Country">
+				<span style="color:red" ng-show="myForm.country.$dirty && myForm.country.$invalid">
+					<span ng-show="myForm.country.$error.required">Country is required.</span>
+				</span>
+			</p>
+			
+			<p>Email:
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" name="email" ng-model="email" required placeholder="Email">
+				<span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+					<span ng-show="myForm.email.$error.required">Email address is Mandatory.</span>
+					<span ng-show="myForm.email.$error.email">Entry is Invalid</span>
+				</span>
+			</p>
+				<p>UserName:
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="username" ng-model="username" required placeholder="Username">
+				<span style="color:red" ng-show="myForm.username.$dirty && myForm.username.$invalid">
+					<span ng-show="myForm.username.$error.required">Username is Mandatory.</span>
+				</span>
+				</p>
+			<p>Password:
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password" ng-model="password" required placeholder="Password">
+					<span style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid">
+					<span ng-show="myForm.password.$error.required">Password is Mandatory.</span>
+				</span>
+			</p>
+				<p>Re-enter Password:
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password2" ng-model="password2" required placeholder="Re-enter password">
+				<span style="color:red" ng-show="myForm.password2.$dirty && myForm.password2.$invalid">
+					<span ng-show="myForm.password2.$error.required">Required field.</span>
+				</span>
+			</p>
+		</form>
+	</fieldset>
+			<fieldset>
+			<legend>Hobbies:<br/></legend>
+				<input type="checkbox" ng-model="cricket">Cricket</input><br/>
+				<input type="checkbox" ng-model="volleyall">Volley Ball</input><br/>
+				<input type="checkbox" ng-model="kabaddi">Kabaddi</input><br/>
+				<input type="checkbox" ng-model="hockey">Hockey</input><br/>
+			</fieldset>	
+			<fieldset>
+				<legend>Are you a Veteran ?<br/></legend>
+				<input type="radio" ng-model="radiobutton" value="yes">Yes</input><br/>
+				<input type="radio" ng-model="radiobutton" value="no">No</input>
+			</fieldset>
+			<input class="button" type="reset" value="Reset">
+			<input class="button" type="submit" ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||myForm.email.$dirty && myForm.email.$invalid">
+			
+		<script>
+			var app = angular.module('myApp', []);
+			app.controller('validation', function($scope) {
+				
+				});
+		</script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+		<meta charset="utf-8"/>  
+		<title>Login</title>
+		<style>
+			fieldset{
+				width:420px;
+				background-color:#e3e3cd;
+				margin-left:455px;
+				margin-top:175px;
+					}
+			.button{
+				margin-top:0px;
+				margin-left:20px;
+				margin-right:15px;
+				padding:5px;
+				background-color:green;
+				width:100px;
+				border-radius:5px;
+			}
+			legend{
+				font-weight:bold;
+				font-size:20px;
+				color:#222227;
+			}
+			body{
+			background-color:#DFE3EE;
+			}
+	
+		</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+	<fieldset>
+	<legend>Login: <br/></legend></legend>
+	<form ng-app="myApp" ng-controller="validation" name="myForm" novalidate class="validate">
+		<p>Username:
+			&nbsp;&nbsp;<input type="text" name="user" ng-model="user" required placeholder="Username">
+				<span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+				<span ng-show="myForm.user.$error.required">Username is Mandatory.</span>
+				</span>
+		</p>
+
+		<p>Password:
+			&nbsp;&nbsp;&nbsp;<input type="password" name="password" ng-model="password" required placeholder="Password">
+			<span style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid">
+				<span ng-show="myForm.password.$error.required">Password is Mandatory.</span>
+			</span><br/>
+			<input type="checkbox" ng-model="cricket">Remember me</input>
+		</p>
+			<input class="button" type="reset" value="Reset">
+			<input class="button" type="submit" ng-enabled="myForm.user.$dirty && myForm.user.$invalid ||myForm.password.$dirty && myForm.password.$invalid">
+			<p>Can&#39;t access.? <a style="margin-left:10px; color:#ff6600;" href="signup.html"> Sign Up</a></p>
+	</form>
+	</fieldset>
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('validation', function($scope) {
+	
+		});
+	</script>
+	
+</body>
+</html>
