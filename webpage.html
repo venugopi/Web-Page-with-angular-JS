@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="webpage_css.css">
+		
+	</head>
+	<body ng-app="myApp">
+		<div id="main" >
+			<nav class="{{active}}" ng-click="$event.preventDefault()">
+				<a href="#" class="logo" ng-click="active='logo'">Logo</a>
+				<a href="#" class="home" ng-click="active='home'">Home</a>
+				<a href="#" class="java" ng-click="active='java'">Java</a>
+				<a href="#" class="dotnet" ng-click="active='dotnet'">.Net</a>
+				<a href="#" class="oracle" ng-click="active='oracle'">Oracle</a>
+				<a href="#" class="python" ng-click="active='python'">Python</a>
+				<a href="#" class="contact" ng-click="active='contact us'">Contact US</a>
+			</nav>
+		<p ng-hide="active">Please click a menu item</p>
+		<p ng-show="active">You Clicked <b>{{active}}</b></p>
+		</div>
+		
+	<form ng-controller="OrderFormController">
+		<h1>Training fee</h1>
+			<ul>
+				<li ng-repeat="service in services" ng-click="toggleActive(service)" ng-class="{active:service.active}">
+					{{service.name}} <span>{{service.price | currency}}</span>
+				</li>
+			</ul>
+		<div class="total">
+			Total: <span>{{total() | currency}}</span>
+		</div>
+	</form>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script type="text/javascript" src="webpage_js.js"></script>
+	
+</body>
+</html>
